@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SpecterRoot: Entry</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="overlay">
+    <h1>Enter Access Code</h1>
+    <input id="codeInput" type="text" maxlength="30" placeholder="15-digit code..." />
+    <button onclick="checkCode()">Enter</button>
+    <p id="errorMsg"></p>
+  </div>
+
+  <div id="jumpscare">
+    <img src="assets/jumpscare.png" alt="BOO!" />
+    <audio id="scream" src="assets/scream.mp3"></audio>
+  </div>
+
+  <script src="js/enter.js"></script>
+</body>
+</html>
