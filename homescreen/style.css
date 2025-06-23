@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('assets/specterroot-ufo.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px 50px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 24px;
+  background-color: #0e0e26;
+  color: #0ff;
+  border: 1px solid #0ff;
+  text-decoration: none;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.buttons a:hover {
+  background-color: #0ff;
+  color: #000;
+}
