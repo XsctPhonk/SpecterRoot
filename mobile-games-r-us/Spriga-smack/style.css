@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  background: #111;
+  color: #0ff;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  overflow: hidden;
+}
+
+canvas {
+  border: 3px solid #0ff;
+  background-color: #222;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.logo img {
+  width: 200px;
+  margin-top: 20px;
+}
