@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at center, #000000 0%, #0b0b0b 100%);
+  color: #00ffee;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.animation-container {
+  text-align: center;
+}
+
+.ufo {
+  width: 200px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.text {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  animation: beamdrop 3s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes beamdrop {
+  0% { transform: translateY(-40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
