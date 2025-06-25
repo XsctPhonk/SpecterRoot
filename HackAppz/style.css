@@ -1,0 +1,85 @@
+/* HackAppz/style.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #0c0c0c, #1b1b1b);
+  color: #f2f2f2;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #121212;
+  border-bottom: 2px solid #444;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #00ffee;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px #00ffee88;
+}
+
+header p {
+  color: #ccc;
+  font-style: italic;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.app-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0 10px #0ff4, 0 0 20px #0ff2 inset;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.app-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff2 inset;
+}
+
+.app-card h3 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-shadow: 0 0 6px #00ffeecc;
+}
+
+.app-card a {
+  display: block;
+  margin: 0.4rem 0;
+  padding: 0.5rem;
+  background-color: #00ffee10;
+  color: #00ffee;
+  text-decoration: none;
+  border: 1px solid #00ffee33;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.app-card a:hover {
+  background-color: #00ffee33;
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #121212;
+  border-top: 2px solid #444;
+  font-size: 0.9rem;
+  color: #888;
+}
