@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Moto X3M Clone</title>
+  <style>
+    body { margin: 0; background: #111; color: #0ff; font-family: monospace; text-align: center; }
+    canvas { background: #222; display: block; margin: auto; border: 2px solid #0ff; }
+  </style>
+</head>
+<body>
+  <h1>🏍️ Moto X3M Lite</h1>
+  <canvas id="moto" width="600" height="300"></canvas>
+  <script>
+    const canvas = document.getElementById("moto");
+    const ctx = canvas.getContext("2d");
+
+    let bike = { x: 50, y: 150, vx: 0, vy: 0, grounded: false };
+    const gravity = 0.5;
+    const groundY = 250;
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0ff";
+      ctx.fillRect(0, groundY, canvas.width, 50);
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(bike.x, bike.y, 40, 20);
+    }
+
+    function update() {
+      if (!bike.grounded) {
+        bike.vy += gravity;
+      }
+      bike.y += bike.vy;
+      bike.x += bike.vx;
+
+      if (bike.y + 20 >= groundY) {
+        bike.y = groundY - 20;
+        bike.vy = 0;
+        bike.grounded = true;
+      }
+
+      draw();
+      requestAnimationFrame(update);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") bike.vx = 2;
+      if (e.key === "ArrowLeft") bike.vx = -2;
+      if (e.key === "ArrowUp" && bike.grounded) {
+        bike.vy = -10;
+        bike.grounded = false;
+      }
+    });
+
+    update();
+  </script>
+</body>
+</html>
