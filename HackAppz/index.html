@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HackAppz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📲 HackAppz</h1>
+    <p>Unblock, launch, and cloak the world’s most restricted apps.</p>
+  </header>
+
+  <main>
+    <div class="app-grid">
+      <!-- App Card Template -->
+      <!-- Repeat this block for each app -->
+      <script>
+        const apps = [
+          { name: 'YouTube', url: 'https://youtube.com', file: 'youtube-launcher.html' },
+          { name: 'Roblox', url: 'https://roblox.com', file: 'roblox-launcher.html' },
+          { name: 'GitHub', url: 'https://github.com', file: 'github-launcher.html' },
+          { name: 'TikTok', url: 'https://tiktok.com', file: 'tiktok-launcher.html' },
+          { name: 'SoundCloud', url: 'https://soundcloud.com', file: 'soundcloud-launcher.html' },
+          { name: 'Windscribe VPN', url: 'https://windscribe.com', file: 'windscribe-launcher.html' },
+          { name: 'Google', url: 'https://google.com', file: 'google-launcher.html' },
+          { name: 'Instagram', url: 'https://instagram.com', file: 'instagram-launcher.html' },
+          { name: 'Chrome Web Store', url: 'https://chromewebstore.google.com', file: 'chromewebstore-launcher.html' }
+        ];
+
+        apps.forEach(app => {
+          const card = document.createElement('div');
+          card.className = 'app-card';
+          card.innerHTML = `
+            <h3>${app.name}</h3>
+            <a href="data:text/html;charset=utf-8,${encodeURIComponent(`<!DOCTYPE html><html><head><title>${app.name} Launcher</title></head><body><script>window.location.replace('https://staticgone.vercel.app/gateway?url=${app.url}');</script></body></html>`)}" download="${app.file}">⬇️ Download Launcher</a>
+            <a href="https://staticgone.vercel.app/gateway?url=${app.url}" target="_blank">🕵️ Open in Proxy</a>
+          `;
+          document.querySelector('.app-grid').appendChild(card);
+        });
+      </script>
+    </div>
+  </main>
+
+  <footer>
+    <p>🚀 Powered by SpecterRoot × StaticGone</p>
+  </footer>
+</body>
+</html>
