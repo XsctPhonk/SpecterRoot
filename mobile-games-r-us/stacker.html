@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stacker</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #0ff;
+      font-family: monospace;
+      text-align: center;
+    }
+    canvas {
+      display: block;
+      margin: 30px auto;
+      background: #000;
+      border: 2px solid #0ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧱 STACKER</h1>
+  <canvas id="game" width="300" height="500"></canvas>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+
+    let stack = [{ x: 75, y: 470, w: 150 }];
+    let dir = 1;
+    let moving = { y: 460, w: 150, x: 0 };
+    let level = 1;
+
+    function draw() {
+      ctx.clearRect(0, 0, 300, 500);
+      ctx.fillStyle = "#0ff";
+      for (let s of stack) {
+        ctx.fillRect(s.x, s.y, s.w, 20);
+      }
+      ctx.fillStyle = "#f0f";
+      ctx.fillRect(moving.x, moving.y, moving.w, 20);
+    }
+
+    function update() {
+      moving.x += 2 * dir;
+      if (moving.x <= 0 || moving.x + moving.w >= 300) dir *= -1;
+      draw();
+      requestAnimationFrame(update);
+    }
+
+    document.body.onclick = () => {
+      let prev = stack[stack.length - 1];
+      let diff = moving.x - prev.x;
+      if (Math.abs(diff) > prev.w) {
+        alert("Game Over! Score: " + level);
+        window.location.reload();
+      }
+      let newW = prev.w - Math.abs(diff);
+      moving = {
+        x: Math.max(moving.x, prev.x),
+        y: prev.y - 20,
+        w: newW,
+      };
+      stack.push(moving);
+      moving = { y: moving.y - 10, w: newW, x: 0 };
+      level++;
+    };
+
+    update();
+  </script>
+</body>
+</html>
