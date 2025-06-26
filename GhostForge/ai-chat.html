@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GhostForge AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .chat-box {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: #111;
+      padding: 1rem;
+      border: 2px solid #00ffee;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffee40;
+    }
+
+    .chat-log {
+      height: 300px;
+      overflow-y: auto;
+      background: #000;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      color: #0ff;
+      font-family: monospace;
+    }
+
+    .input-bar {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .input-bar input {
+      flex: 1;
+      padding: 0.6rem;
+      border: none;
+      background: #222;
+      color: #0ff;
+    }
+
+    .input-bar button {
+      padding: 0.6rem 1rem;
+      background: #00ffee20;
+      color: #0ff;
+      border: 1px solid #00ffee;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🤖 GhostForge AI</h1>
+    <p>Ask for exploit scripts or bookmarklets</p>
+  </header>
+
+  <main>
+    <div class="chat-box">
+      <div class="chat-log" id="log">
+        <div><strong>AI:</strong> What can I generate for you? Try "Proxied IXL hack" or "Dark mode bookmarklet".</div>
+      </div>
+      <div class="input-bar">
+        <input type="text" id="userInput" placeholder="Type your request..." />
+        <button onclick="generateReply()">Send</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function generateReply() {
+      const log = document.getElementById('log');
+      const input = document.getElementById('userInput');
+      const userText = input.value.trim();
+      if (!userText) return;
+
+      log.innerHTML += `<div><strong>You:</strong> ${userText}</div>`;
+
+      let response = '';
+      if (userText.toLowerCase().includes("ixl")) {
+        response = "Use: javascript:alert('IXL auto-solver loaded (fake)')";
+      } else if (userText.toLowerCase().includes("prodigy")) {
+        response = "Use: javascript:alert('Prodigy membership unlocked (fake)')";
+      } else if (userText.toLowerCase().includes("bookmarklet")) {
+        response = "Try this: javascript:(function(){document.body.contentEditable=true;})()";
+      } else {
+        response = "Sorry, I couldn't find a script for that. Try 'IXL hack' or 'inspect unlock'.";
+      }
+
+      log.innerHTML += `<div><strong>AI:</strong> ${response}</div>`;
+      input.value = '';
+      log.scrollTop = log.scrollHeight;
+    }
+  </script>
+</body>
+</html>
