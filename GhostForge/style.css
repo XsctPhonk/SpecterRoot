@@ -57,4 +57,25 @@ footer {
   padding: 1rem;
   font-size: 0.8rem;
   color: #666;
+  #ghostforge {
+  background: #111;
+  border: 2px solid #00ffee;
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 10px;
+  color: #0ff;
+  text-align: center;
+}
+
+.ghostforge-links a {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #0ff2;
+  border: 1px solid #00ffee;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
 }
