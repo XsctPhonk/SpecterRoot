@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GhostForge Board</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .board {
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 1rem;
+      background: #111;
+      border: 2px solid #00ffee;
+      border-radius: 10px;
+      color: #00ffee;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      background: #222;
+      border: 1px solid #00ffee;
+      color: #00ffee;
+      margin-top: 0.5rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #0ff2;
+      border: 1px solid #0ff;
+      color: #0ff;
+    }
+
+    .post {
+      background: #000;
+      border: 1px solid #0ff6;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📜 GhostForge Post Board</h1>
+    <p>Share and discover scripts with the community</p>
+  </header>
+
+  <main>
+    <div class="board">
+      <h2>Submit Your Hack</h2>
+      <input type="text" id="title" placeholder="Hack title (e.g. Prodigy XP Boost)" />
+      <textarea id="content" placeholder="Paste your JS/script/bookmarklet here..."></textarea>
+      <button onclick="submitPost()">Post</button>
+
+      <h2>Community Hacks</h2>
+      <div id="posts"></div>
+    </div>
+  </main>
+
+  <script>
+    function submitPost() {
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+      if (!title || !content) return alert("Please fill in both fields");
+
+      const post = { title, content };
+      const posts = JSON.parse(localStorage.getItem('ghostPosts') || '[]');
+      posts.unshift(post);
+      localStorage.setItem('ghostPosts', JSON.stringify(posts));
+      loadPosts();
+    }
+
+    function loadPosts() {
+      const posts = JSON.parse(localStorage.getItem('ghostPosts') || '[]');
+      const postDiv = document.getElementById('posts');
+      postDiv.innerHTML = posts.map(p => `<div class='post'><strong>${p.title}</strong><pre>${p.content}</pre></div>`).join('');
+    }
+
+    loadPosts();
+  </script>
+</body>
+</html>
