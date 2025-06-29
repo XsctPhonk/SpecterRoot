@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Desktop - Opera GX</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .window {
+      width: 90%;
+      margin: 2rem auto;
+      background: #1a1a1a;
+      border: 2px solid #ff004c;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 0 20px #ff004c55;
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 1rem;
+      background: #111;
+      border-bottom: 1px solid #ff004c;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 1rem;
+      border-radius: 6px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff004c;
+    }
+
+    .app-downloads {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .app {
+      background: #111;
+      border: 1px solid #ff004c;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 150px;
+      text-align: center;
+    }
+
+    .app button {
+      margin-top: 0.5rem;
+      background: #ff004c;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🖥️ Virtual Desktop - Opera GX</h1>
+
+  <div class="window">
+    <div class="navbar">
+      <a onclick="loadApp('vpn')">VPN</a>
+      <a onclick="loadApp('gamestore')">GX Game Store</a>
+      <a onclick="showAppStore()">App Store</a>
+      <a onclick="loadApp('browser')">Browser</a>
+      <a onclick="loadApp('youtube')">YouTube</a>
+    </div>
+
+    <iframe id="vmFrame" src="https://staticgone.vercel.app"></iframe>
+
+    <div id="appstore" style="display:none;">
+      <h2 style="text-align:center;">📲 App Store</h2>
+      <div class="app-downloads">
+        <div class="app"><p>YouTube</p><button onclick="promptInstall('https://youtube.com')">Download</button></div>
+        <div class="app"><p>Roblox</p><button onclick="promptInstall('https://www.roblox.com')">Download</button></div>
+        <div class="app"><p>GitHub</p><button onclick="promptInstall('https://github.com')">Download</button></div>
+        <div class="app"><p>SoundCloud</p><button onclick="promptInstall('https://soundcloud.com')">Download</button></div>
+        <div class="app"><p>Windscribe VPN</p><button onclick="promptInstall('https://windscribe.com')">Download</button></div>
+        <div class="app"><p>Instagram</p><button onclick="promptInstall('https://www.instagram.com')">Download</button></div>
+        <div class="app"><p>Google</p><button onclick="promptInstall('https://www.google.com')">Download</button></div>
+        <div class="app"><p>TikTok</p><button onclick="promptInstall('https://www.tiktok.com')">Download</button></div>
+        <div class="app"><p>Chrome Web Store</p><button onclick="promptInstall('https://chromewebstore.google.com')">Download</button></div>
+        <div class="app"><p>Opera Addons</p><button onclick="promptInstall('https://addons.opera.com')">Download</button></div>
+        <div class="app"><p>Microsoft App Store</p><button onclick="promptInstall('https://apps.microsoft.com')">Download</button></div>
+        <div class="app"><p>GX Cleaner</p><button onclick="promptInstall('https://www.opera.com/gx')">Download</button></div>
+        <div class="app"><p>Brave Browser</p><button onclick="promptInstall('https://brave.com')">Download</button></div>
+        <div class="app"><p>Discord</p><button onclick="promptInstall('https://discord.com')">Download</button></div>
+        <div class="app"><p>Reddit</p><button onclick="promptInstall('https://www.reddit.com')">Download</button></div>
+        <div class="app"><p>Spotify</p><button onclick="promptInstall('https://open.spotify.com')">Download</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function loadApp(app) {
+      document.getElementById("appstore").style.display = "none";
+      const frame = document.getElementById("vmFrame");
+      const apps = {
+        vpn: "https://staticgone.vercel.app",
+        gamestore: "https://gx.games",
+        browser: "https://www.google.com",
+        youtube: "https://www.youtube.com"
+      };
+      frame.src = apps[app];
+    }
+
+    function showAppStore() {
+      document.getElementById("vmFrame").src = "about:blank";
+      document.getElementById("appstore").style.display = "block";
+    }
+
+    function promptInstall(url) {
+      const choice = confirm("Install on real computer? Click 'Cancel' to install on virtual desktop.");
+      if (choice) {
+        window.open(url, '_blank');
+      } else {
+        document.getElementById("vmFrame").src = url;
+      }
+    }
+  </script>
+</body>
+</html>
