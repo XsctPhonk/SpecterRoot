@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sites by Spector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌐 Sites by Spector</h1>
+    <p>Unlock the hidden corners of the web</p>
+  </header>
+
+  <main>
+    <div class="categories">
+      <button onclick="filterSites('all')">All</button>
+      <button onclick="filterSites('proxy')">Proxies</button>
+      <button onclick="filterSites('edu')">Educational</button>
+      <button onclick="filterSites('fun')">Fun</button>
+    </div>
+
+    <section class="site-grid">
+      <a href="https://staticgone.vercel.app" target="_blank" data-category="proxy">StaticGone</a>
+      <a href="https://62627373352667272263637372727273737.vercel.app" target="_blank" data-category="proxy">62627 Proxy</a>
+      <a href="https://pets-are-cool.vercel.app" target="_blank" data-category="fun">Pets Are Cool</a>
+      <a href="https://pokemon-academy-edu.vercel.app" target="_blank" data-category="edu">Pokemon Academy</a>
+      <a href="https://happiness-skydiving.vercel.app" target="_blank" data-category="fun">Happiness Skydiving</a>
+      <a href="https://silly-goose-is-cool.vercel.app" target="_blank" data-category="proxy">Silly Goose Proxy</a>
+      <a href="https://learn-ultraviolet-onstatic.vercel.app/static/" target="_blank" data-category="proxy">Learn Ultraviolet</a>
+      <a href="https://great-sw0rd-void.vercel.app" target="_blank" data-category="fun">GreatSw0rd</a>
+      <a href="https://just-cool-tau.vercel.app" target="_blank" data-category="fun">Just Cool</a>
+      <a href="https://jxst-exthang3r.vercel.app" target="_blank" data-category="proxy">Exthang3r</a>
+      <a href="https://not-sparkzz.vercel.app" target="_blank" data-category="proxy">Not Sparkzz</a>
+      <a href="https://hidden-sparkzz.vercel.app" target="_blank" data-category="proxy">Hidden Sparkzz</a>
+      <a href="https://mask3r-v4.vercel.app" target="_blank" data-category="proxy">Mask3r V4</a>
+      <a href="https://dragons-rush.vercel.app" target="_blank" data-category="fun">Dragon's Rush</a>
+      <a href="https://not-happy-cool.vercel.app" target="_blank" data-category="fun">Not Happy Cool</a>
+      <a href="https://not-hacksyeah.vercel.app" target="_blank" data-category="proxy">Not HacksYeah</a>
+      <a href="https://hackerrzxcv.vercel.app/" target="_blank" data-category="proxy">HackerrZXCV</a>
+      <a href="https://iceberg-adventure.vercel.app" target="_blank" data-category="fun">Iceberg Adventure</a>
+      <a href="https://duck-educationyay.vercel.app" target="_blank" data-category="edu">Duck Education</a>
+      <a href="https://smile-life.vercel.app/" target="_blank" data-category="fun">Smile Life</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Part of the SpecterRoot Web Network</p>
+  </footer>
+
+  <script>
+    function filterSites(category) {
+      const links = document.querySelectorAll('.site-grid a');
+      links.forEach(link => {
+        const matches = category === 'all' || link.dataset.category === category;
+        link.style.display = matches ? 'inline-block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
