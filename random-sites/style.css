@@ -1,0 +1,86 @@
+/* style.css for Random Sites */
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, #1a0022, #2a0033, #000000);
+  color: #ffffff;
+  overflow-x: hidden;
+  animation: bgshift 20s infinite linear;
+}
+
+@keyframes bgshift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+header {
+  padding: 2rem;
+  background: #0ff2;
+  text-shadow: 0 0 5px #f0f, 0 0 10px #0ff;
+  border-bottom: 2px solid #fff3;
+  animation: glitch-text 1.2s infinite;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #fff;
+}
+
+p {
+  font-style: italic;
+  color: #ccc;
+}
+
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.site-grid a {
+  display: block;
+  background: #111;
+  padding: 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff0;
+  box-shadow: 0 0 5px #f0f, 0 0 15px #0ff;
+  border: 2px dashed #fff5;
+  transition: all 0.3s ease-in-out;
+  animation: pulse 3s infinite;
+}
+
+.site-grid a:hover {
+  transform: scale(1.05) rotate(-1deg);
+  background: #222;
+  color: #0ff;
+  box-shadow: 0 0 25px #f0f, 0 0 45px #0ff;
+}
+
+@keyframes glitch-text {
+  0%, 100% {
+    text-shadow: 0.03em 0 0 #f0f, -0.03em -0.03em 0 #0ff;
+  }
+  50% {
+    text-shadow: -0.03em 0 0 #0ff, 0.03em 0.03em 0 #f0f;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px #ff0, 0 0 20px #f0f;
+  }
+  50% {
+    box-shadow: 0 0 30px #0ff, 0 0 40px #f0f;
+  }
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #fff3;
+  color: #999;
+  font-size: 0.85rem;
+}
