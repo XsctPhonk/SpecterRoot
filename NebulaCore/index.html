@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NebulaCore Executor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 NebulaCore Executor</h1>
+    <p>Inject scripts or ask AI to create one for any target URL</p>
+
+    <label for="url">🔗 Target URL:</label>
+    <input type="text" id="url" placeholder="https://example.com">
+
+    <label for="mode">⚙️ Select Mode:</label>
+    <select id="mode">
+      <option value="manual">Paste Code</option>
+      <option value="ai">Ask NebulaBot</option>
+    </select>
+
+    <div id="manual-inputs">
+      <label for="language">💻 Code Language:</label>
+      <select id="language">
+        <option value="javascript">JavaScript</option>
+        <option value="css">CSS</option>
+        <option value="html">HTML</option>
+        <option value="json">JSON</option>
+      </select>
+
+      <label for="type">🔖 Inject As:</label>
+      <select id="type">
+        <option value="bookmarklet">Bookmarklet</option>
+        <option value="script">Script</option>
+      </select>
+
+      <textarea id="code" placeholder="Paste your code here..."></textarea>
+    </div>
+
+    <div id="ai-prompt" style="display: none">
+      <label for="aiQuery">🤖 What do you want NebulaBot to do?</label>
+      <textarea id="aiQuery" placeholder="Describe your code request..."></textarea>
+    </div>
+
+    <button onclick="executeCode()">💥 Execute Code</button>
+  </div>
+
+  <canvas id="nebula"></canvas>
+  <script src="executor.js"></script>
+</body>
+</html>
