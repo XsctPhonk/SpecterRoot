@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+  background: #121212;
+  color: #eee;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+#status-box {
+  margin: 1rem auto;
+  padding: 1rem;
+  background: #222;
+  border: 2px solid #0ff;
+  width: 80%;
+  border-radius: 8px;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background: #08f;
+  color: #fff;
+}
+
+.note {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
