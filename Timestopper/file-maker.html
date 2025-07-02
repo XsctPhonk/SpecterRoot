@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Maker Bot</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background: #0e0e1a;
+      color: #fff;
+      font-family: monospace;
+      padding: 2rem;
+      text-align: center;
+    }
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #1a1a2e;
+      border: none;
+      color: #fff;
+    }
+    button {
+      padding: 10px 20px;
+      background: #00f0ff;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    a {
+      display: block;
+      margin-top: 15px;
+      color: #0ff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>📂 File Maker Bot</h1>
+  <p>Generate any file with AI ✨</p>
+
+  <input id="filename" placeholder="example.txt" /><br>
+  <textarea id="content" placeholder="Enter the content here..." rows="10"></textarea><br>
+  <button onclick="makeFile()">Create & Download</button>
+
+  <a id="downloadLink" style="display: none;">Download your file</a>
+
+  <script>
+    function makeFile() {
+      const filename = document.getElementById('filename').value;
+      const content = document.getElementById('content').value;
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const link = document.getElementById('downloadLink');
+      link.href = url;
+      link.download = filename;
+      link.style.display = 'block';
+      link.textContent = `⬇️ Download ${filename}`;
+    }
+  </script>
+</body>
+</html>
