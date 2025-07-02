@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Math Solver</title></head>
+<body>
+  <h1>Math Solver AI</h1>
+  <input id="math" placeholder="2 + 2 * 3" />
+  <button onclick="solve()">Solve</button>
+  <p id="result"></p>
+  <script>
+    function solve() {
+      try {
+        const val = eval(document.getElementById('math').value);
+        document.getElementById('result').textContent = `Answer: ${val}`;
+      } catch {
+        document.getElementById('result').textContent = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
