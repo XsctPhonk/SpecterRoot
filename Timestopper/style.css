@@ -1,0 +1,32 @@
+body {
+  background: radial-gradient(#0a0f1d, #000);
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  padding: 20px;
+}
+
+button {
+  background: #0ff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input, textarea {
+  width: 80%;
+  margin: 10px auto;
+  padding: 8px;
+  font-size: 1em;
+}
+
+pre {
+  background: #111;
+  padding: 10px;
+  border: 1px solid #444;
+  margin-top: 15px;
+  overflow-x: auto;
+}
