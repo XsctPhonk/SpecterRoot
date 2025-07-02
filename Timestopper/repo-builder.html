@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>GitHub Repo Builder</title></head>
+<body>
+  <h1>GitHub Repo Generator</h1>
+  <input id="name" placeholder="Repo Name" /><br>
+  <textarea id="desc" placeholder="What does this repo do?"></textarea><br>
+  <button onclick="build()">Generate</button>
+  <pre id="repo-code"></pre>
+  <script>
+    function build() {
+      const name = document.getElementById('name').value;
+      const desc = document.getElementById('desc').value;
+      document.getElementById('repo-code').textContent = 
+        `# ${name}\n\n## Description:\n${desc}\n\n## Deploy\nUse Vercel or Netlify to deploy this site.`;
+    }
+  </script>
+</body>
+</html>
