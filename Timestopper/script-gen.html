@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Script + Exploit Generator</title></head>
+<body>
+  <h1>Script + Exploit Generator</h1>
+  <input id="desc" placeholder="e.g., Unlock all coins in game" /><br>
+  <button onclick="gen()">Generate Script</button>
+  <pre id="code"></pre>
+  <script>
+    function gen() {
+      const desc = document.getElementById('desc').value;
+      document.getElementById('code').textContent = 
+        `// Script generated for: ${desc}\n\nconsole.log('Exploit running...');`;
+    }
+  </script>
+</body>
+</html>
