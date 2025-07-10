@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music on Spector</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎵 Music on Spector</h1>
+    <p>Access music freely through the SpectorRoot proxy chain</p>
+  </header>
+
+  <main>
+    <section class="step">
+      <h2>Step 1: Select Base Proxy</h2>
+      <select id="proxy-base">
+        <option value="https://staticgone.vercel.app">StaticGone</option>
+        <option value="https://pets-are-cool.vercel.app">Pets Are Cool</option>
+        <option value="https://62627373352667272263637372727273737.vercel.app">Numerical Portal</option>
+      </select>
+    </section>
+
+    <section class="step">
+      <h2>Step 2: Find a YouTube Proxy</h2>
+      <p>Search for: <code>YouTube unblocked</code> in the proxy’s search bar</p>
+      <button onclick="openProxy()">Open Proxy</button>
+    </section>
+
+    <section class="note">
+      <p>Once in the second proxy, navigate to YouTube and find a playlist to enjoy ad-free music through the layers!</p>
+    </section>
+  </main>
+
+  <script>
+    function openProxy() {
+      const base = document.getElementById('proxy-base').value;
+      window.open(base, '_blank');
+    }
+  </script>
+</body>
+</html>
