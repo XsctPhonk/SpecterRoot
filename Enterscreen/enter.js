@@ -1,33 +1,53 @@
 const validCodes = [
-  "FX29XK18V5Z93QJ", "T7M5E8LZ2X91VKD", "R9QP3W2A7DJ0XMN",
-  "TE43WBDHFN9L0ER", "D0-NOT-D0-1T", "Y3333T36465757",
-  "@$&*15253!8375", "HAUNTEDHUNT3EER", "WOWIMHAPPY234", "WO0O0O0909O0W",
-  "HELLO2374658475", "7564756R!!/;=+-;:", "MAG1C32R&56R775", "VAN1SHEDX920DK3",
-  "TR4C3LESS559KAD", "9XW8VZT26QJU45L", "L0STGAT3Z198K5T", "F1NALEX1T994PZW",
-  "GHOSTNODE712FEK", "ECHO-D3EP4B5526", "ZQ71PAK39LY09TR", "J9KR6UV28MXP1QZ",
-  "TK13DJ72NX74WDQ", "NORETRYFAD378XZ", "CRYPTDOOR1QX984", "QU1ETZONE953KL1",
-  "TOMBW1RE6667ZFD", "S1LEN7SYNT4X002", "DEATHP1NG78VCSD", "ABSENCEKEY9381ZF"
+  "274816492748165", "839102748394102", "192837465564738",
+  "550201293847110", "476382910374655", "998877665544321",
+  "183746382910374", "812374650192837", "999888777666555",
+  "111222333444555", "726381920384756", "847362910293847",
+  "302948576293847", "128374650293847", "555444333222111"
 ];
 
-const jumpscareCode = "NECR0CLASH666";
+const jumpscareCode = "000000000000000"; // Enter your real jumpscare code
 
 function checkCode() {
-  const input = document.getElementById('codeInput').value.trim().toUpperCase();
+  const input = document.getElementById("codeInput").value.trim();
+  const feedback = document.getElementById("errorMessage");
 
   if (input === jumpscareCode) {
-    // SCP jumpscare
-    document.getElementById('jumpscare').style.display = 'flex';
-    document.getElementById('scream').play();
-    return;
-  }
-
-  if (validCodes.includes(input)) {
-    // Cloak tab and redirect
-    const newWin = window.open("about:blank", "_blank");
-    newWin.document.write("<script>location.href='homepage.html'</script>");
-    window.close();
+    // Display the jumpscare image directly
+    document.body.innerHTML = `
+      <style>
+        body {
+          margin: 0;
+          background: black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        img {
+          width: 100%;
+          max-width: 1000px;
+          animation: flash 0.15s alternate infinite;
+        }
+        @keyframes flash {
+          from { filter: brightness(1); }
+          to { filter: brightness(4); }
+        }
+      </style>
+      <img src="jumpscare.png" alt="JUMPSCARE">
+    `;
+  } else if (validCodes.includes(input)) {
+    window.location.href = "../Homescreen/index.html";
   } else {
-    document.getElementById('errorMsg').innerText = "404 - found-a-lier.";
-    // Optional: play error sound or flicker screen
+    feedback.textContent = "❌ 404 - Found a liar.";
   }
 }
+
+// Button click
+document.getElementById("submitBtn").addEventListener("click", checkCode);
+
+// Enter key
+document.getElementById("codeInput").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") checkCode();
+});
+
