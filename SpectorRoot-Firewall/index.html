@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpectorRoot Firewall</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛡️ SpectorRoot Firewall</h1>
+    <p>Bypass. Cloak. Control.</p>
+  </header>
+
+  <main>
+    <section class="feature">
+      <h2>🔐 Escape Combo</h2>
+      <input type="text" id="escape-url" placeholder="Enter escape URL" />
+      <p>Press <code>Ctrl + ~</code> to trigger</p>
+    </section>
+
+    <section class="feature">
+      <h2>🌐 Proxy Search Engine</h2>
+      <input type="text" id="proxy-url" placeholder="Proxy Base (e.g., https://staticgone.vercel.app)" />
+      <input type="text" id="search-query" placeholder="Search anything..." />
+      <button onclick="doProxySearch()">🔍 Search via Proxy</button>
+    </section>
+
+    <section class="feature">
+      <h2>🖼 Tab Cloaker</h2>
+      <input type="text" id="tab-title" placeholder="Fake Title (e.g., Google Drive)" />
+      <input type="text" id="tab-icon" placeholder="Favicon URL (optional)" />
+      <button onclick="cloakTab()">🕶 Cloak Tab</button>
+    </section>
+
+    <section class="feature">
+      <h2>🧿 Breach Mode</h2>
+      <input type="text" id="breach-url" placeholder="Enter full URL to iframe cloak" />
+      <button onclick="launchBreach()">🚪 Enter Breach Mode</button>
+      <div id="breach-frame"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Crafted in the shadows by SpectorRoot 🔥</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
