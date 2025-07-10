@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to SpectorRoot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    input, button {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      background: #111;
+      color: #0f0;
+      border: 1px solid #0f0;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>SpectorRoot Access Portal</h1>
+  <p>Enter your 15-digit verification code:</p>
+  <input type="text" id="codeInput" maxlength="15" placeholder="XXXXXXXXXXXXXXX" />
+  <button onclick="verifyCode()">ENTER</button>
+  <div id="errorMessage" class="error"></div>
+
+  <script>
+    const validCodes = [
+      "274816492748165", "839102748394102", "192837465564738", "550201293847110", 
+      "476382910374655", "998877665544321", "183746382910374", "812374650192837",
+      "999888777666555", "111222333444555", "726381920384756", "847362910293847",
+      "302948576293847", "128374650293847", "555444333222111"
+    ];
+
+    function verifyCode() {
+      const input = document.getElementById('codeInput').value.trim();
+      const error = document.getElementById('errorMessage');
+      if (validCodes.includes(input)) {
+        window.location.href = "./Homescreen/index.html";
+      } else {
+        error.textContent = "❌ Invalid code. 404 - Found a liar.";
+        // Optional: add jumpscare
+        // document.body.innerHTML = '<img src="Enterscreen/jumpscare.png" style="width:100vw;height:100vh;">';
+      }
+    }
+  </script>
+</body>
+</html>
